@@ -1,4 +1,4 @@
-package com.example.eclecticbank.Views.Onboarding
+package com.example.eclecticbank.Views.OnboardingScreens
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.eclecticbank.R
 import com.example.eclecticbank.databinding.FragmentOnBoardingScreen1Binding
-import java.util.EventListener
 import java.util.Locale
 
 

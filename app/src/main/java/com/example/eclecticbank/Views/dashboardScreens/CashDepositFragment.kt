@@ -15,17 +15,22 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.eclecticbank.R
 import com.example.eclecticbank.ViewModels.UserViewModel
+import com.example.eclecticbank.ViewModels.onBoardingViewModel
 import com.example.eclecticbank.databinding.FragmentCashDepositBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
+@AndroidEntryPoint
 class CashDepositFragment : Fragment() {
 
     private var _binding: FragmentCashDepositBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var viewModel: UserViewModel
 
 
@@ -34,6 +39,9 @@ class CashDepositFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCashDepositBinding.inflate(inflater, container, false)
+
+       viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+
 
 
 
@@ -50,11 +58,16 @@ class CashDepositFragment : Fragment() {
         binding.makeDepositButton.setOnClickListener(){
 
 
+
+
             //Check if all fields have been filled
             if ((binding.accountNumberTextField.text?.isEmpty()
                     ?: binding.amountTextField.text?.isEmpty()
                     ?: binding.narrationtextField.text?.isEmpty()) != true
             ){
+
+                var user = viewModel.fetchCustomerData()
+
 
                 //If all fields are filled do action
                 showCustomDialogue(binding.amountTextField.text, binding.amountTextField.text, binding.narrationtextField.text)
@@ -78,7 +91,7 @@ class CashDepositFragment : Fragment() {
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.custom_alertdialogue_layout)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        val btnyes: Button = dialog.findViewById(R.id.confirm_button)
+        val btnYes: Button = dialog.findViewById(R.id.confirm_button)
         val btnNo: Button = dialog.findViewById(com.google.android.material.R.id.cancel_button)
         val close: ImageView = dialog.findViewById(R.id.close_icon)
 
@@ -90,12 +103,14 @@ class CashDepositFragment : Fragment() {
         amount.text = amountInput
 
 
-//        var narration: TextView = dialog.findViewById(R.id.narration)
-//        narration.text = narrationInput
+        var narration: TextView = dialog.findViewById(R.id.narrationfield)
+        narration.text = narrationInput
 
-        btnyes.setOnClickListener(){
+        btnYes.setOnClickListener(){
+
             dialog.dismiss()
             findNavController().navigate(R.id.action_cashDepositFragment_to_homeDashboardFragment)
+
         }
 
 

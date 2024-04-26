@@ -1,4 +1,4 @@
-package com.example.eclecticbank.Views.Onboarding
+package com.example.eclecticbank.Views.OnboardingScreens
 
 import android.content.Context
 import android.os.Bundle

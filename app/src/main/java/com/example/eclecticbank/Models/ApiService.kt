@@ -10,6 +10,6 @@ interface ApiService {
     @MockResponse(body = "{\"bankName\":\"Absa\", \"accountNumber\":\"12345\", \"customerPhoneNumber\":\"0786222283\"}")
     @GET("data")
 //    suspend fun fetchData():Users
-    suspend fun fetchData(): Call<Users?>?
+    suspend fun fetchData():Users
 
 }

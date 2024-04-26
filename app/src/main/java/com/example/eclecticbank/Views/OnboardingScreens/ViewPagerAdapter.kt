@@ -1,4 +1,4 @@
-package com.example.eclecticbank.Views.Onboarding
+package com.example.eclecticbank.Views.OnboardingScreens
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
