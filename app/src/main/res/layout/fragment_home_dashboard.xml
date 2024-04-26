@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".Views.dashboardScreens.homeDashboardFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profile"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_white"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/bell"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/welcome_back_alex"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/white"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/agent_id_123456"
+                android:textSize="12sp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/last_logged"
+            android:textSize="12dp"
+            android:textColor="@color/white"/>
+
+
+
+        <Button
+            android:id="@+id/view_status_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_summary"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_marginTop="32dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/here_s_your_quick_access_to_agency_banking_services"
+        android:textColor="@color/blue"
+        android:layout_margin="16dp"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/tab_layout"
+        app:tabInlineLabel="true"
+        app:tabTextColor="@color/grey"
+        app:tabIndicatorColor="@color/orange"
+        app:tabSelectedTextColor="@color/orange"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/tab_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

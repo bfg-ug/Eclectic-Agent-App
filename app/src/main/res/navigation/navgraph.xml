@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/splashScreenFragment2">
+    <fragment
+        android:id="@+id/splashScreenFragment2"
+        android:name="com.example.eclecticbank.Views.Onboarding.SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment2_to_viewpagerFragment"
+            app:destination="@id/viewpagerFragment"
+            app:popUpTo="@id/splashScreenFragment2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment2_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment"
+            app:popUpTo="@id/splashScreenFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewpagerFragment"
+        android:name="com.example.eclecticbank.Views.Onboarding.viewpagerFragment"
+        android:label="fragment_viewpager"
+        tools:layout="@layout/fragment_viewpager" >
+        <action
+            android:id="@+id/action_viewpagerFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment"
+            app:popUpTo="@id/viewpagerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeDashboardFragment"
+        android:name="com.example.eclecticbank.Views.dashboardScreens.homeDashboardFragment"
+        android:label="fragment_home_dashboard"
+        tools:layout="@layout/fragment_home_dashboard" >
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_cashDepositFragment"
+            app:destination="@id/cashDepositFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cashDepositFragment"
+        android:name="com.example.eclecticbank.Views.dashboardScreens.CashDepositFragment"
+        android:label="cashDepositFragment" >
+        <action
+            android:id="@+id/action_cashDepositFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+    </fragment>
+</navigation>

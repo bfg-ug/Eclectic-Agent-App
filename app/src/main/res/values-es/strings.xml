@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Eclectic bank</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_to_eclectics_agency_banking">Bienvenido a la Agencia Bancaria Eclectics</string>
+    <string name="onboardingScreen2Text">Simplifique la banca a través de agentes en toda su región y difunda su huella bancaria</string>
+    <string name="skip">Saltar</string>
+    <string name="select_language">Seleccione el idioma</string>
+    <string name="give_permissions_to_have_a_better_experience">Dar permisos para tener una mejor experiencia</string>
+    <string name="contacts">Contactos</string>
+    <string name="we_access_your_contacts_to_make_transactions">Accedemos a tus contactos para realizar transacciones</string>
+    <string name="storage">Almacenamiento</string>
+    <string name="make_downloads_of_your_statements">Realiza descargas de tus estados de cuenta</string>
+    <string name="location">Ubicación</string>
+    <string name="to_give_you_available_service_via_maps">Para brindarle servicio disponible a través de mapas.</string>
+    <string name="give_all_permission">DAR TODO PERMISO</string>
+    <string name="you_are_all_set_to_go_set_up_and_activate_your_agency_banking_account">Ya está todo listo para configurar y activar la cuenta bancaria de su agencia.</string>
+    <string name="back">Atrás</string>
+    <string name="get_started">Empezar</string>
+    <string name="cash_deposit">Cash deposit</string>
+    <string name="deposit_money_on_behalf_of_your_customers_to_their_accounts">Deposit money on behalf of your customers to their accounts</string>
+    <string name="select_bank">Select Bank</string>
+    <string name="account_number">Account number</string>
+    <string name="customer_phone_number">Customer Phone Number</string>
+    <string name="amount">Amount</string>
+    <string name="narration">Narration</string>
+    <string name="make_deposit">MAKE DEPOSIT</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="cancel">CANCEL</string>
+    <string name="confirm_transaction">CONFIRM TRANSACTION</string>
+    <string name="account_name">ACCOUNT NAME</string>
+    <string name="amount_uppercase">AMOUNT</string>
+    <string name="charge">CHARGE</string>
+    <string name="narration_uppercase">NARRATION</string>
+    <string name="ref_no">REF NO:</string>
+    <string name="view_summary">View Summary</string>
+    <string name="agent_id_123456">Agent ID: 123456</string>
+    <string name="welcome_back_alex">Welcome back Alex,</string>
+    <string name="here_s_your_quick_access_to_agency_banking_services">Here’s your quick access to agency banking services</string>
+    <string name="excise_duty">EXCISE DUTY</string>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>French</item>
+        <item>Spanish</item>
+        <item>Swahili</item>
+    </string-array>
+</resources>
