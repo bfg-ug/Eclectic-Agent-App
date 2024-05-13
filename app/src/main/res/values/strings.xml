@@ -40,6 +40,7 @@
     <string name="welcome_back_alex">Welcome back Alex,</string>
     <string name="here_s_your_quick_access_to_agency_banking_services">Here’s your quick access to agency banking services</string>
     <string name="excise_duty">EXCISE DUTY</string>
+    <string name="required">Required</string>
 
     <string-array name="languages">
         <item>English</item>

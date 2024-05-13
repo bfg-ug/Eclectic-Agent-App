@@ -51,7 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/select_bank">
+            android:hint="@string/select_bank"
+            >
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextview"
@@ -63,42 +64,63 @@
 
         <!--Account number input field-->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/accountNumberContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/account_number"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red"
+            android:maxLength="12"
+            app:counterEnabled="true"
+            app:counterMaxLength="12"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/accountNumberTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:maxLength="12"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Customer phone number input field-->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneNumberContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/customer_phone_number"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneNumberTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:inputType="number"
+                android:maxLength="10"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Amount input field-->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amountContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/amount"
             android:layout_marginTop="16dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red"
+            android:maxLength="8"
+            app:counterMaxLength="8"
+            app:counterEnabled="true"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -106,21 +128,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Narration input field-->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/narrationContainer"
             android:layout_width="match_parent"
             android:layout_height="77dp"
             android:hint="@string/narration"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red"
+
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/narrationtextField"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:inputType="text"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>

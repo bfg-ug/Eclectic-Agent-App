@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -42,6 +43,11 @@ class CashDepositFragment : Fragment() {
 
        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
+        accountNumberFocusListener()
+        phoneNumberFocusListener()
+        narrationFocusListener()
+
+
 
 
 
@@ -66,11 +72,22 @@ class CashDepositFragment : Fragment() {
                     ?: binding.narrationtextField.text?.isEmpty()) != true
             ){
 
-                var user = viewModel.fetchCustomerData()
+                if (binding.accountNumberContainer.helperText == null && binding.phoneNumberContainer.helperText == null ){
+                    var user = viewModel.fetchCustomerData()
 
 
-                //If all fields are filled do action
-                showCustomDialogue(binding.amountTextField.text, binding.amountTextField.text, binding.narrationtextField.text)
+                    //If all fields are filled do action
+                    showCustomDialogue(binding.accountNumberTextField.text, binding.amountTextField.text, binding.narrationtextField.text)
+                }else{
+                    invalidInput()
+                }
+
+
+
+
+
+
+
             }else{
 
                 // If any field is not filled show Toast
@@ -81,6 +98,79 @@ class CashDepositFragment : Fragment() {
 
         return binding.root
     }
+
+    private fun invalidInput() {
+        var message = ""
+        if (binding.accountNumberContainer.helperText != null){
+            message += binding.accountNumberContainer.helperText
+        }
+        if (binding.phoneNumberContainer.helperText != null){
+            message += binding.phoneNumberContainer.helperText
+        }
+        
+        
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun accountNumberFocusListener() {
+        binding.accountNumberTextField.setOnFocusChangeListener{_, focused ->
+            if (!focused){
+                binding.accountNumberContainer.helperText= validAccountNumber()
+            }
+
+        }
+    }
+
+    private fun validAccountNumber(): String? {
+        val accountnumber = binding.accountNumberTextField
+
+        if (accountnumber.length() < 8){
+            return "Invalid Account number"
+        }
+        return null
+    }
+
+    private fun phoneNumberFocusListener() {
+        binding.phoneNumberContainer.setOnFocusChangeListener{_, focused ->
+            if (!focused){
+                binding.phoneNumberContainer.helperText= validphoneNumber()
+            }
+
+        }
+    }
+
+    private fun validphoneNumber(): String? {
+        val phonenumber = binding.phoneNumberTextField.text.toString()
+
+        val pattern = Regex("^[+]?[0-9]{10,13}\$")
+        return if (!pattern.matches(phonenumber)) {
+            "Invalid Phone Number"
+        } else {
+            null
+        }
+    }
+
+    private fun narrationFocusListener() {
+        binding.narrationContainer.setOnFocusChangeListener{_, focused ->
+            if (!focused){
+                binding.phoneNumberContainer.helperText= validNarration()
+            }
+
+        }
+    }
+
+    private fun validNarration(): String? {
+        val narration = binding.narrationtextField.text
+
+        val regex = Regex("^[a-zA-Z ]+\$")
+
+            if (narration?.let { regex.matches(it) } == true){
+                return "Invalid narration"
+        }
+        return null
+    }
+
+
 
 
 
