@@ -45,7 +45,12 @@ class CashDepositFragment : Fragment() {
 
         accountNumberFocusListener()
         phoneNumberFocusListener()
-        narrationFocusListener()
+//        narrationFocusListener()
+
+
+        binding.toolbar.setOnClickListener{
+            findNavController().navigate(R.id.homeDashboardFragment)
+        }
 
 
 
@@ -150,25 +155,25 @@ class CashDepositFragment : Fragment() {
         }
     }
 
-    private fun narrationFocusListener() {
-        binding.narrationContainer.setOnFocusChangeListener{_, focused ->
-            if (!focused){
-                binding.phoneNumberContainer.helperText= validNarration()
-            }
-
-        }
-    }
-
-    private fun validNarration(): String? {
-        val narration = binding.narrationtextField.text
-
-        val regex = Regex("^[a-zA-Z ]+\$")
-
-            if (narration?.let { regex.matches(it) } == true){
-                return "Invalid narration"
-        }
-        return null
-    }
+//    private fun narrationFocusListener() {
+//        binding.narrationContainer.setOnFocusChangeListener{_, focused ->
+//            if (!focused){
+//                binding.phoneNumberContainer.helperText= validNarration()
+//            }
+//
+//        }
+//    }
+//
+//    private fun validNarration(): String? {
+//        val narration = binding.narrationtextField.text
+//
+//        val regex = Regex("^[a-zA-Z ]+\$")
+//
+//            if (narration?.let { regex.matches(it) } == true){
+//                return "Invalid narration"
+//        }
+//        return null
+//    }
 
 
 

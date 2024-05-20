@@ -28,12 +28,12 @@ class CashServicesFragment : Fragment() {
         //list of services on the screen
         val items = listOf(
             Service("Cash withdrawal", R.drawable.cash_withdrawal_icon,  R.id.homeDashboardFragment),
-            Service("Cash Deposit", R.drawable.cash_deposit_icon, R.id.action_homeDashboardFragment_to_cashDepositFragment),
-            Service("Cash Collection", R.drawable.cash_collection_icon,  R.id.homeDashboardFragment),
-            Service("Payments", R.drawable.cash_withdrawal_icon,  R.id.homeDashboardFragment),
-            Service("Funds Transfer", R.drawable.cash_deposit_icon,  R.id.homeDashboardFragment),
-            Service("Remittance", R.drawable.cash_collection_icon,  R.id.homeDashboardFragment),
-            Service("Top-Up Service", R.drawable.cash_withdrawal_icon,  R.id.homeDashboardFragment),
+            Service("Cash Deposit", R.drawable.deposit_icon, R.id.action_homeDashboardFragment_to_cashDepositFragment),
+            Service("Cash Collection", R.drawable.cash_collection,  R.id.homeDashboardFragment),
+            Service("Payments", R.drawable.payment_icon,  R.id.homeDashboardFragment),
+            Service("Funds Transfer", R.drawable.funds_transfer_icon,  R.id.homeDashboardFragment),
+            Service("Remittance", R.drawable.remittance_icon,  R.id.homeDashboardFragment),
+            Service("Top-Up Service", R.drawable.top_up_icon,  R.id.homeDashboardFragment),
             // Add more items as needed
         )
 

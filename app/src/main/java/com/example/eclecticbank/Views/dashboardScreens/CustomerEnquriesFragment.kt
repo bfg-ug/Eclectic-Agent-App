@@ -28,9 +28,9 @@ class CustomerEnquriesFragment : Fragment() {
 
         //List of services
         val items = listOf(
-            Service("Balance enquiry", R.drawable.cash_withdrawal_icon,  R.id.homeDashboardFragment),
-            Service("Mini-statement", R.drawable.cash_deposit_icon, R.id.homeDashboardFragment),
-            Service("Short Account Opening", R.drawable.cash_collection_icon,  R.id.homeDashboardFragment),
+            Service("Balance enquiry", R.drawable.balance_enquiry_icon,  R.id.homeDashboardFragment),
+            Service("Mini-statement", R.drawable.mini_statement_icon, R.id.homeDashboardFragment),
+            Service("Short Account Opening", R.drawable.short_account_opening_icon,  R.id.homeDashboardFragment),
             // Add more items as needed
         )
 

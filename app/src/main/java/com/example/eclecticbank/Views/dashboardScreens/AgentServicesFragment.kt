@@ -26,10 +26,10 @@ class AgentServicesFragment : Fragment() {
 
         // List of services
         val items = listOf(
-            Service("Agent Float", R.drawable.cash_withdrawal_icon, R.id.homeDashboardFragment),
-            Service("Transaction status", R.drawable.cash_deposit_icon,  R.id.homeDashboardFragment),
-            Service("Summary report", R.drawable.cash_collection_icon,  R.id.homeDashboardFragment),
-            Service("Lead generation", R.drawable.cash_collection_icon,  R.id.homeDashboardFragment),
+            Service("Agent Float", R.drawable.agent_float_icon, R.id.homeDashboardFragment),
+            Service("Transaction status", R.drawable.transaction_status_icon,  R.id.homeDashboardFragment),
+            Service("Summary report", R.drawable.summary_report_icon,  R.id.homeDashboardFragment),
+            Service("Lead generation", R.drawable.lead_generation_icon,  R.id.homeDashboardFragment),
             // Add more items as needed
         )
 

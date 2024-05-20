@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     tools:context=".Views.dashboardScreens.homeDashboardFragment">
 
@@ -85,11 +84,13 @@
             android:layout_height="wrap_content"
             android:text="@string/view_summary"
             style="?attr/materialButtonOutlinedStyle"
-            android:layout_marginTop="32dp"
+            android:layout_marginVertical="32dp"
             android:textStyle="bold"
             android:textColor="@color/white"
-
+            app:strokeColor ="@color/white"
             />
+
+
     </LinearLayout>
 
     <TextView
@@ -108,12 +109,15 @@
         app:tabTextColor="@color/grey"
         app:tabIndicatorColor="@color/orange"
         app:tabSelectedTextColor="@color/orange"
+
         app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/tab_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        />
 
 
 </LinearLayout>

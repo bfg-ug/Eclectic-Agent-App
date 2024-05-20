@@ -5,6 +5,7 @@
          <item name="colorPrimary">@color/blue</item>
         <item name="colorOnPrimary">@color/blue</item>
         <item name="android:colorSecondary">@color/light_blue</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.EclecticBank" parent="Base.Theme.EclecticBank" />
