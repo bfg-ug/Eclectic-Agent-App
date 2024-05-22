@@ -27,7 +27,7 @@ class CashServicesFragment : Fragment() {
 
         //list of services on the screen
         val items = listOf(
-            Service("Cash withdrawal", R.drawable.cash_withdrawal_icon,  R.id.homeDashboardFragment),
+            Service("Cash withdrawal", R.drawable.cash_withdrawal_icon,  R.id.action_homeDashboardFragment_to_cardlessWithdrawal),
             Service("Cash Deposit", R.drawable.deposit_icon, R.id.action_homeDashboardFragment_to_cashDepositFragment),
             Service("Cash Collection", R.drawable.cash_collection,  R.id.homeDashboardFragment),
             Service("Payments", R.drawable.payment_icon,  R.id.homeDashboardFragment),

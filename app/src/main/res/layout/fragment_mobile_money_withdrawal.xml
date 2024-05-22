@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.dashboardScreens.homeDashboardFragment">
-
+    tools:context=".Views.AdditionalScreens.MobileMoneyWithdrawal">
 
     <LinearLayout
         android:id="@+id/body"
@@ -25,11 +24,11 @@
             />
 
 
-        <!--Cash deposit Text-->
+        <!--Mobile money Text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cash_deposit"
+            android:text="@string/mobile_money_withdrawal"
             android:textColor="@color/blue"
             android:textStyle="bold"
             android:textSize="22sp"
@@ -37,54 +36,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--Cash deposit sub text-->
+        <!--Mobile money sub text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="14sp"
-            android:text="@string/deposit_money_on_behalf_of_your_customers_to_their_accounts"
+            android:text="@string/initiate_a_mobile_money_withdrawal_for_your_customer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--Select bank input field-->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
+        <!--Select network provider text-->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/select_bank"
-            >
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!--Account number input field-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/accountNumberContainer"
-            android:layout_width="match_parent"
+            android:text="@string/select_network_provider"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mobileMoneyRecyclerView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/account_number"
-            android:layout_marginTop="16dp"
-            app:helperText=""
-            app:helperTextTextColor="@color/red"
-            android:maxLength="12"
-            >
+           android:layout_marginVertical="8dp"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/accountNumberTextField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="12"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            />
 
         <!--Customer phone number input field-->
         <com.google.android.material.textfield.TextInputLayout
@@ -130,26 +109,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Narration input field-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/narrationContainer"
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:hint="@string/narration"
-            android:layout_marginTop="16dp"
-            app:helperText=""
-            app:helperTextTextColor="@color/red"
-
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/narrationtextField"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -157,22 +116,18 @@
     </LinearLayout>
 
 
-    <!--Divider-->
-
-    <!-- Make deposit button-->
+    <!-- Submit button-->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/makeDepositButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/make_deposit"
+        android:text="@string/submit"
+        android:textColor="@color/white"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

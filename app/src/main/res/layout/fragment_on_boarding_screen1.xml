@@ -102,7 +102,7 @@
             android:id="@+id/nextArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_forward_24"
+            android:src="@drawable/forward_arrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginRight="16dp"

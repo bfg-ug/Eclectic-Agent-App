@@ -38,6 +38,12 @@
         <action
             android:id="@+id/action_homeDashboardFragment_to_cashDepositFragment"
             app:destination="@id/cashDepositFragment" />
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_cardlessWithdrawal"
+            app:destination="@id/cardlessWithdrawal" />
+        <action
+            android:id="@+id/action_homeDashboardFragment_to_mobileMoneyWithdrawal"
+            app:destination="@id/mobileMoneyWithdrawal" />
     </fragment>
     <fragment
         android:id="@+id/cashDepositFragment"
@@ -45,6 +51,24 @@
         android:label="cashDepositFragment" >
         <action
             android:id="@+id/action_cashDepositFragment_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardlessWithdrawal"
+        android:name="com.example.eclecticbank.Views.AdditionalScreens.CardlessWithdrawal"
+        android:label="fragment_cardless_withdrawal"
+        tools:layout="@layout/fragment_cardless_withdrawal" >
+        <action
+            android:id="@+id/action_cardlessWithdrawal_to_homeDashboardFragment"
+            app:destination="@id/homeDashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mobileMoneyWithdrawal"
+        android:name="com.example.eclecticbank.Views.AdditionalScreens.MobileMoneyWithdrawal"
+        android:label="fragment_mobile_money_withdrawal"
+        tools:layout="@layout/fragment_mobile_money_withdrawal" >
+        <action
+            android:id="@+id/action_mobileMoneyWithdrawal_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
     </fragment>
 </navigation>

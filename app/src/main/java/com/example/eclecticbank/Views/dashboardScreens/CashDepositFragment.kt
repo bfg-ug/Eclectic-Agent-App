@@ -49,7 +49,7 @@ class CashDepositFragment : Fragment() {
 
 
         binding.toolbar.setOnClickListener{
-            findNavController().navigate(R.id.homeDashboardFragment)
+            findNavController().navigate(R.id.action_cashDepositFragment_to_homeDashboardFragment)
         }
 
 
