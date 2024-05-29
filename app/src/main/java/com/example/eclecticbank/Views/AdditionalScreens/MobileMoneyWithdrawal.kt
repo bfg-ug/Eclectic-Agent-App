@@ -7,12 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.eclecticbank.Models.MobileMoneyAdapter
+import com.example.eclecticbank.Models.MobileMoneyRecyclerViewAdapter
 import com.example.eclecticbank.Models.MobileMoneyProvider
 import com.example.eclecticbank.R
-import com.example.eclecticbank.Views.dashboardScreens.ServiceIconAdapter
-import com.example.eclecticbank.databinding.FragmentCashServicesBinding
 import com.example.eclecticbank.databinding.FragmentMobileMoneyWithdrawalBinding
 
 
@@ -20,7 +17,7 @@ class MobileMoneyWithdrawal : Fragment() {
 
     private var _binding: FragmentMobileMoneyWithdrawalBinding? = null
     private val binding get() = _binding!!
-    private lateinit var mobileMoneyAdapter: MobileMoneyAdapter
+    private lateinit var mobileMoneyRecyclerViewAdapter: MobileMoneyRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,19 +34,21 @@ class MobileMoneyWithdrawal : Fragment() {
             MobileMoneyProvider("MTN", R.drawable.mask),
             )
 
-        // Mobile Money service provider adapter
-        mobileMoneyAdapter = MobileMoneyAdapter(items)
-
-        //recyclerview viewbinding
-        binding.mobileMoneyRecyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = mobileMoneyAdapter
-        }
-
         //Back Arrow
         binding.toolbar.setOnClickListener{
             findNavController().navigate(R.id.action_mobileMoneyWithdrawal_to_homeDashboardFragment)
         }
+
+        // Mobile Money service provider adapter
+        mobileMoneyRecyclerViewAdapter = MobileMoneyRecyclerViewAdapter(items)
+
+        //recyclerview viewbinding
+        binding.mobileMoneyRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = mobileMoneyRecyclerViewAdapter
+        }
+
+
 
 
 

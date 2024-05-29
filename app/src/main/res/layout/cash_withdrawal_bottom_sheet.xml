@@ -26,13 +26,13 @@
 
 
            <TextView
-               android:layout_width="wrap_content"
+               android:id="@+id/bottomSheetTitleText"
+               android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:layout_weight="1"
-               android:textSize="16dp"
+               android:textSize="16sp"
                android:textStyle="bold"
-               android:textColor="@color/blue"
-               android:text="Select one cash withdrawal option" />
+               android:textColor="@color/blue"/>
 
            <ImageView
                android:id="@+id/closeButton"
@@ -44,92 +44,15 @@
 
        </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardlessWithdrawalCard"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bottomSheetRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="8dp"
-            app:cardCornerRadius="15dp"
-            android:background="@drawable/cardview_outlined_border"
-            android:layout_marginVertical="8dp"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="20dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/card_icon"
-                    android:layout_marginEnd="8dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/cardless_withdrawal"
-                    android:textSize="14sp"
-                    android:layout_gravity="center_vertical"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/forward_arrow"
-                    android:layout_gravity="center"/>
+            android:layout_height="wrap_content"/>
 
 
 
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/mobileMoneyWithdrawalCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="8dp"
-            app:cardCornerRadius="15dp"
-            android:layout_marginVertical="8dp"
-            android:background="@drawable/cardview_outlined_border"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="20dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/card_icon"
-                    android:layout_marginEnd="8dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Mobile money withdrawal"
-                    android:textSize="14sp"
-                    android:layout_gravity="center_vertical"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/forward_arrow"
-                    android:layout_gravity="center"/>
-
-
-
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
 
 

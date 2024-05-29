@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.AdditionalScreens.CardlessWithdrawal">
+    tools:context=".Views.AdditionalScreens.School_Fees_Payment_Fragment">
 
     <LinearLayout
         android:id="@+id/body"
@@ -24,11 +24,12 @@
             />
 
 
-        <!--Cardless withdrawal Text-->
+        <!--School name-->
         <TextView
+            android:id="@+id/schoolTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/card_less_withdrawal"
+            android:text=""
             android:textColor="@color/blue"
             android:textStyle="bold"
             android:textSize="22sp"
@@ -36,54 +37,59 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--Cardless withdrawal sub text-->
+        <!--School fees sub text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="14sp"
-            android:text="Withdraw money from customers account without Using a card"
+            android:text="@string/pay_school_fees_to_this_school"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
-
-        <!--Intiator's phone number input field-->
+        <!--Student name input field-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/intiatorsphoneNumberContainer"
+            android:id="@+id/studentNameContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/student_s_name"
             android:layout_marginTop="16dp"
-            android:hint="@string/intiators_phone_number"
-            android:focusedByDefault="true"
-            app:helperText=""
-            app:helperTextTextColor="@color/red"
-
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/intiatorsphoneNumberTextField"
+                android:id="@+id/studentTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:textColorHint="@color/white"
-                android:maxLength="10"
-                android:hint="@string/eg_254712345678"
+                android:inputType="text"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--Student Admission number input field-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addmissionNumberContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/student_s_admission_number"
+            android:layout_marginTop="16dp"
+            >
 
-        <!--Recipients phone number input field-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/accountNumberTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Customer phone number input field-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneNumberContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/customer_phone_number"
             android:layout_marginTop="16dp"
-            android:focusableInTouchMode="true"
-            android:hint="@string/recipient_s_phone_number"
             app:helperText=""
             app:helperTextTextColor="@color/red"
 
@@ -94,20 +100,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:textColorHint="@color/white"
                 android:maxLength="10"
-                android:hint="@string/eg_254712345678"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <!--Customer pin input field-->
+        <!--Amount input field-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/customerPinContainer"
+            android:id="@+id/amountContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/customer_s_pin"
+            android:hint="@string/amount"
+            android:layout_marginTop="16dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red"
+            android:maxLength="8"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amountTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Narration input field-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/narrationContainer"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:hint="@string/narration"
             android:layout_marginTop="16dp"
             app:helperText=""
             app:helperTextTextColor="@color/red"
@@ -115,11 +140,10 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/customerPinTextField"
+                android:id="@+id/narrationtextField"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="10"
+                android:layout_height="match_parent"
+                android:inputType="text"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -127,15 +151,9 @@
 
 
 
-
-
-
-
-
     </LinearLayout>
 
 
-    <!--Divider-->
 
     <!-- Make deposit button-->
     <com.google.android.material.button.MaterialButton
@@ -143,7 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="SUBMIT"
+        android:text="@string/submit"
         android:textColor="@color/white"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -151,7 +169,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="30dp" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

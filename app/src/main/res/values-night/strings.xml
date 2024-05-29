@@ -44,6 +44,18 @@
     <string name="select_network_provider">Select network provider</string>
     <string name="initiate_a_mobile_money_withdrawal_for_your_customer">Initiate a mobile money withdrawal for your Customer</string>
     <string name="cardless_withdrawal">Cardless withdrawal</string>
+    <string name="intiators_phone_number">Intiators phone number</string>
+    <string name="card_less_withdrawal">Card-less withdrawal</string>
+    <string name="eg_254712345678">Eg. +254712345678</string>
+    <string name="recipient_s_phone_number">Recipient\'s Phone number</string>
+    <string name="customer_s_pin">Customer\'s Pin</string>
+    <string name="search">Search</string>
+    <string name="school_fees">School fees</string>
+    <string name="institution">Institution</string>
+    <string name="search_by_name">Search by name</string>
+    <string name="student_s_name">Student\'s Name</string>
+    <string name="student_s_admission_number">Student\'s Admission Number</string>
+    <string name="pay_school_fees_to_this_school">Pay school fees to this school</string>
 
     <string-array name="languages">
         <item>English</item>

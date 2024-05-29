@@ -4,9 +4,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eclecticbank.Models.BottomSheetOption
+import com.example.eclecticbank.R
 import com.example.eclecticbank.Views.AdditionalScreens.BottonsheetFragement
 import com.example.eclecticbank.databinding.ServiceIconLayoutBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class ServiceIconAdapter(private val items: List<Service>) : RecyclerView.Adapter<ServiceIconAdapter.ItemViewHolder>() {
@@ -20,9 +21,31 @@ class ServiceIconAdapter(private val items: List<Service>) : RecyclerView.Adapte
             binding.servicestextview.text = item.serviceName
             binding.root.setOnClickListener {
                 if(item.serviceName == "Cash withdrawal" ){
-                    val bottomSheet = BottonsheetFragement.newInstance()
+
+
+                    val cards = listOf(
+                        BottomSheetOption(0,"Cardless Withdreawal", R.drawable.card_icon ),
+                        BottomSheetOption(1,"Mobile Money Withdrawal", R.drawable.mobile_icon ),
+                    )
+
+
+                    val bottomSheet = BottonsheetFragement.newInstance(cards, "Select one cash withdrawal option")
                     bottomSheet.show((itemView.context as AppCompatActivity).supportFragmentManager, bottomSheet.tag)
-                }else{
+                }else if(item.serviceName == "Cash Collection"){
+                    val cards = listOf(
+                        BottomSheetOption(0,"Direct collection", R.drawable.deposit_icon),
+                        BottomSheetOption(1,"Indirect collections", R.drawable.payment_icon),
+                        BottomSheetOption(2,"School fees", R.drawable.school_icon ),
+                        BottomSheetOption(3,"Goverment collection", R.drawable.goverment_icon),
+                    )
+
+
+                    val bottomSheet = BottonsheetFragement.newInstance(cards, "Select one payment from the list")
+                    bottomSheet.show((itemView.context as AppCompatActivity).supportFragmentManager, bottomSheet.tag)
+
+                }
+
+                else{5
                     it.findNavController().navigate(item.destinationScreen)
                 }
 

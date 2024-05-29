@@ -157,7 +157,6 @@
     </LinearLayout>
 
 
-    <!--Divider-->
 
     <!-- Make deposit button-->
     <com.google.android.material.button.MaterialButton
