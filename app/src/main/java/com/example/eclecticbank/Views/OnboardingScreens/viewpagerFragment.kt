@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.eclecticbank.Views.Adapters.OnboardingViewPagerAdapter
 import com.example.eclecticbank.databinding.FragmentViewpagerBinding
 
 class viewpagerFragment : Fragment() {
@@ -26,7 +27,7 @@ class viewpagerFragment : Fragment() {
             onBoardingScreen4()
         )
 
-        val adapter = ViewPagerAdapter(fragmentList, getChildFragmentManager(), lifecycle)
+        val adapter = OnboardingViewPagerAdapter(fragmentList, getChildFragmentManager(), lifecycle)
 
         binding.viewPager.adapter = adapter
 

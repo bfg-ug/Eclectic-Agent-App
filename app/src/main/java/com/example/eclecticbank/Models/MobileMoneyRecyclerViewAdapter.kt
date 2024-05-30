@@ -53,12 +53,12 @@ class MobileMoneyRecyclerViewAdapter(private val items: List<MobileMoneyProvider
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MobileMoneyRecyclerViewAdapter.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = MobileMoneyServiceItemCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MobileMoneyRecyclerViewAdapter.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
         holder.bind(currentItem)
     }

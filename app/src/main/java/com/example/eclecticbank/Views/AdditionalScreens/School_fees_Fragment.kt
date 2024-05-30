@@ -3,21 +3,24 @@ package com.example.eclecticbank.Views.AdditionalScreens
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.eclecticbank.Models.BottomSheetOption
 import com.example.eclecticbank.Models.SchoolFeesOption
+import com.example.eclecticbank.Models.Schools
 import com.example.eclecticbank.Models.SchoolFeesRecyclerViewAdapter
 import com.example.eclecticbank.R
+import com.example.eclecticbank.ViewModels.SchoolsViewModel
 import com.example.eclecticbank.databinding.FragmentSchoolFeesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class School_fees_Fragment : Fragment() {
 
     private var _binding: FragmentSchoolFeesBinding? = null
@@ -25,12 +28,16 @@ class School_fees_Fragment : Fragment() {
 
     private lateinit var recylerViewAdapter: SchoolFeesRecyclerViewAdapter
 
+    private val schoolsViewModel: SchoolsViewModel by viewModels()
+
 
     private val items = listOf(
-        SchoolFeesOption(0,"Direct collection", R.drawable.deposit_icon,"school" ),
-        SchoolFeesOption(1,"Indirect collections", R.drawable.payment_icon, "school"),
-        SchoolFeesOption(2,"School fees", R.drawable.school_icon,"institution"),
-        SchoolFeesOption(3,"Goverment collection", R.drawable.goverment_icon, "institution"),
+        Schools(1,"Taibah international","School","+25677777777","Wakiso", "112980"),
+        Schools(2,"Viva international", "School" ,"+25677777777","Wakiso", "112980"),
+        Schools(3,"Budo international", "School","+25677777777","Wakiso", "112980"),
+        Schools(1,"Taibah international","Institution","+25677777777","Wakiso", "112980"),
+        Schools(2,"Strathmore University", "Institiution" ,"+25677777777","Wakiso", "112980"),
+        Schools(3,"University of Nairobi", "School","+25677777777","Wakiso", "112980"),
     )
 
 
@@ -60,47 +67,7 @@ class School_fees_Fragment : Fragment() {
 
 
 
-
-        recylerViewAdapter = SchoolFeesRecyclerViewAdapter(items, schoolListItemOnClicked)
-
-        //recyclerview viewbinding
-        binding.schoolListRecyclerview.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            adapter = recylerViewAdapter
-        }
-
-
-
-
-
-        val defaultColor = ContextCompat.getColor(requireContext(), R.color.light_grey)
-        val focusedColor = ContextCompat.getColor(requireContext(), R.color.blue)
-        val defaultFontColor = ContextCompat.getColor(requireContext(), R.color.grey)
-        val focusedFontColor = ContextCompat.getColor(requireContext(), R.color.white)
-
-
-
-
-        binding.schoolButton.setOnClickListener{
-            binding.schoolButton.setBackgroundColor(focusedColor)
-            binding.institutionButton.setBackgroundColor(defaultColor)
-            binding.schoolButton.setTextColor(focusedFontColor)
-            binding.institutionButton.setTextColor(defaultFontColor)
-
-            filterByType("school")
-
-        }
-
-        binding.institutionButton.setOnClickListener{
-            binding.schoolButton.setBackgroundColor(defaultColor)
-            binding.institutionButton.setBackgroundColor(focusedColor)
-            binding.schoolButton.setTextColor(defaultFontColor)
-            binding.institutionButton.setTextColor(focusedFontColor)
-
-            filterByType("institution")
-
-        }
-
+//        Searchview binding
         binding.searchview.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -113,16 +80,70 @@ class School_fees_Fragment : Fragment() {
 
 
 
+
+        //Focused Colors
+        val defaultColor = ContextCompat.getColor(requireContext(), R.color.light_grey)
+        val focusedColor = ContextCompat.getColor(requireContext(), R.color.blue)
+        val defaultFontColor = ContextCompat.getColor(requireContext(), R.color.grey)
+        val focusedFontColor = ContextCompat.getColor(requireContext(), R.color.white)
+
+
+
+        //School button
+        binding.schoolButton.setOnClickListener{
+            binding.schoolButton.setBackgroundColor(focusedColor)
+            binding.institutionButton.setBackgroundColor(defaultColor)
+            binding.schoolButton.setTextColor(focusedFontColor)
+            binding.institutionButton.setTextColor(defaultFontColor)
+
+            filterByType("School")
+
+        }
+
+        //Institution button
+        binding.institutionButton.setOnClickListener{
+            binding.schoolButton.setBackgroundColor(defaultColor)
+            binding.institutionButton.setBackgroundColor(focusedColor)
+            binding.schoolButton.setTextColor(defaultFontColor)
+            binding.institutionButton.setTextColor(focusedFontColor)
+
+            filterByType("Institution")
+
+        }
+
+
+        schoolsViewModel.addSchools(items)
+        schoolsViewModel.getSchoolData()
+
+        Log.d("room Response", schoolsViewModel.getSchoolData().toString())
+
+
+
+
+
+        //Recyclerview Adapter
+        recylerViewAdapter = SchoolFeesRecyclerViewAdapter(items)
+
+        //recyclerview viewbinding
+        binding.schoolListRecyclerview.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            adapter = recylerViewAdapter
+        }
+
+
+
+
         return binding.root
     }
-
+//    Search bar Filter
     private fun filter(text: String) {
-        val filteredList = items.filter { it.widgetTitle.contains(text, ignoreCase = true) }
+        val filteredList = items.filter { it.schoolName.contains(text, ignoreCase = true) }
         recylerViewAdapter.filterList(filteredList)
     }
 
+    //Filter by type
     private fun filterByType(text: String) {
-        val filteredList = items.filter { it.companyType.contains(text, ignoreCase = true) }
+        val filteredList = items.filter { it.schoolType.contains(text, ignoreCase = true) }
         recylerViewAdapter.filterList(filteredList)
     }
 

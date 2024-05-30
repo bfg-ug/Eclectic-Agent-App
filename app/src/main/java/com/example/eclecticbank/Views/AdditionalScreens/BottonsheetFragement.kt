@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eclecticbank.Models.BottomSheetOption
 import com.example.eclecticbank.R
+import com.example.eclecticbank.Views.AdditionalScreens.RectangularWidgetRecyclerViewAdapter
 import com.example.eclecticbank.databinding.CashWithdrawalBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

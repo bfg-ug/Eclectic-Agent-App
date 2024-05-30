@@ -1,13 +1,13 @@
 package com.example.eclecticbank.Models
 
+import android.content.Context
+import androidx.room.Room
 import co.infinum.retromock.Retromock
-import com.example.eclecticbank.MainActivity
-import dagger.Component
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -15,6 +15,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
+
+    @Provides
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            "appDatabase.db")
+            .fallbackToDestructiveMigration()
+            .build()
+
+    }
 
 
     @Provides
@@ -38,6 +49,12 @@ class NetworkModule {
     fun provideMockTest(retromock: Retromock): ApiService {
         return retromock.create(ApiService::class.java)
     }
+
+
+    @Provides
+    fun provideUserDAO(database: AppDatabase) = database.schoolDao()
+
+
 
 
 

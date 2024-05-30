@@ -78,8 +78,9 @@ class CashDepositFragment : Fragment() {
             ){
 
                 if (binding.accountNumberContainer.helperText == null && binding.phoneNumberContainer.helperText == null ){
-                    var user = viewModel.fetchCustomerData()
 
+
+                    var user = viewModel.fetchCustomerData()
 
                     //If all fields are filled do action
                     showCustomDialogue(binding.accountNumberTextField.text, binding.amountTextField.text, binding.narrationtextField.text)

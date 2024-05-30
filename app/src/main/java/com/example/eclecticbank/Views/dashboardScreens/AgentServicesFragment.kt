@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.eclecticbank.Models.Service
 import com.example.eclecticbank.R
+import com.example.eclecticbank.Views.Adapters.ServiceIconAdapter
 import com.example.eclecticbank.databinding.FragmentAgentServicesBinding
 
 

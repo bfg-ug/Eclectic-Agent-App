@@ -1,10 +1,11 @@
-package com.example.eclecticbank.Views.dashboardScreens
+package com.example.eclecticbank.Views.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eclecticbank.Models.BottomSheetOption
+import com.example.eclecticbank.Models.Service
 import com.example.eclecticbank.R
 import com.example.eclecticbank.Views.AdditionalScreens.BottonsheetFragement
 import com.example.eclecticbank.databinding.ServiceIconLayoutBinding

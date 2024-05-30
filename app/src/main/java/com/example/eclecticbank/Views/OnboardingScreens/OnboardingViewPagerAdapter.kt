@@ -1,15 +1,14 @@
-package com.example.eclecticbank.Views.dashboardScreens
+package com.example.eclecticbank.Views.Adapters
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class tabviewpagerAdapter(list: ArrayList<Fragment>, fm: FragmentActivity):  FragmentStateAdapter(fm) {
+class OnboardingViewPagerAdapter(list: ArrayList<Fragment>, fm: FragmentManager, lifecycle:Lifecycle):FragmentStateAdapter(fm, lifecycle) {
+
 
     private val fragmentList = list
-
 
     override fun getItemCount(): Int {
         return fragmentList.size
@@ -18,5 +17,6 @@ class tabviewpagerAdapter(list: ArrayList<Fragment>, fm: FragmentActivity):  Fra
     override fun createFragment(position: Int): Fragment {
         return fragmentList[position]
     }
+
 
 }
