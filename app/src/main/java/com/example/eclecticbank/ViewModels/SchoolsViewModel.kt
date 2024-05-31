@@ -1,5 +1,6 @@
 package com.example.eclecticbank.ViewModels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.eclecticbank.Models.Schools
@@ -21,13 +22,9 @@ class SchoolsViewModel@Inject constructor(private  val schoolsRepository: School
 
     }
 
+    val allSchools: LiveData<List<Schools>> = schoolsRepository.schoolData
 
-    fun getSchoolData(){
-        CoroutineScope(Dispatchers.IO).launch{
-           schoolsRepository.getSchools()
-        }
 
-    }
 
 
 }

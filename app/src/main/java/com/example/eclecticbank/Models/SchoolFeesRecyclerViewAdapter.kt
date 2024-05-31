@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eclecticbank.databinding.SchoolFeesOptionBinding
 
 
-class SchoolFeesRecyclerViewAdapter (private var items: List<Schools>): RecyclerView.Adapter<SchoolFeesRecyclerViewAdapter.ItemViewHolder>() {
+class SchoolFeesRecyclerViewAdapter (private val clickListener: (Schools) -> Unit): RecyclerView.Adapter<SchoolFeesRecyclerViewAdapter.ItemViewHolder>() {
 
-
+    private var schools = emptyList<Schools>()
 
 
     inner class ItemViewHolder(private val binding: SchoolFeesOptionBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -16,6 +16,7 @@ class SchoolFeesRecyclerViewAdapter (private var items: List<Schools>): Recycler
         fun bind(item: Schools) {
             binding.cardText.text = item.schoolName
             binding.root.setOnClickListener {
+                clickListener(item)
             }
         }
     }
@@ -26,15 +27,21 @@ class SchoolFeesRecyclerViewAdapter (private var items: List<Schools>): Recycler
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val currentItem = items[position]
+        val currentItem = schools[position]
         holder.bind(currentItem)
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = schools.size
 
 
     fun filterList(filteredList: List<Schools>) {
-        items = filteredList
+        schools = filteredList
+        notifyDataSetChanged()
+    }
+
+
+    internal fun setSchools(schools: List<Schools>) {
+        this.schools = schools
         notifyDataSetChanged()
     }
 

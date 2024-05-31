@@ -83,11 +83,46 @@
         android:label="BottonsheetFragement" />
     <fragment
         android:id="@+id/school_fees_Fragment"
-        android:name="com.example.eclecticbank.Views.AdditionalScreens.School_fees_Fragment"
+        android:name="com.example.eclecticbank.Views.AdditionalScreens.SchoolFeesFragment"
         android:label="fragment_school_fees_"
         tools:layout="@layout/fragment_school_fees_" >
         <action
             android:id="@+id/action_school_fees_Fragment_to_homeDashboardFragment"
             app:destination="@id/homeDashboardFragment" />
+        <action
+            android:id="@+id/action_school_fees_Fragment_to_school_Fees_Payment_Fragment"
+            app:destination="@id/school_Fees_Payment_Fragment">
+
+        <argument
+            android:name="schoolName"
+            app:argType="string" />
+        <argument
+            android:name="schoolType"
+            app:argType="string" />
+        <argument
+            android:name="schoolLocation"
+            app:argType="string" />
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/school_Fees_Payment_Fragment"
+        android:name="com.example.eclecticbank.Views.AdditionalScreens.SchoolFeesPaymentFragment"
+        android:label="fragment_school__fees__payment_"
+        tools:layout="@layout/fragment_school__fees__payment_" >
+        <action
+            android:id="@+id/action_school_Fees_Payment_Fragment_to_school_fees_Fragment"
+            app:destination="@id/school_fees_Fragment">
+
+            <argument
+                android:name="schoolName"
+                app:argType="string" />
+            <argument
+                android:name="schoolType"
+                app:argType="string" />
+            <argument
+                android:name="schoolLocation"
+                app:argType="string" />
+        </action>
     </fragment>
 </navigation>

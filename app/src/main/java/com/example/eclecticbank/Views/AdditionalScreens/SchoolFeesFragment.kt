@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eclecticbank.Models.SchoolFeesOption
@@ -21,7 +22,7 @@ import com.example.eclecticbank.databinding.FragmentSchoolFeesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class School_fees_Fragment : Fragment() {
+class SchoolFeesFragment : Fragment() {
 
     private var _binding: FragmentSchoolFeesBinding? = null
     private val binding get() = _binding!!
@@ -35,9 +36,9 @@ class School_fees_Fragment : Fragment() {
         Schools(1,"Taibah international","School","+25677777777","Wakiso", "112980"),
         Schools(2,"Viva international", "School" ,"+25677777777","Wakiso", "112980"),
         Schools(3,"Budo international", "School","+25677777777","Wakiso", "112980"),
-        Schools(1,"Taibah international","Institution","+25677777777","Wakiso", "112980"),
-        Schools(2,"Strathmore University", "Institiution" ,"+25677777777","Wakiso", "112980"),
-        Schools(3,"University of Nairobi", "School","+25677777777","Wakiso", "112980"),
+        Schools(4,"Taibah international","Institution","+25677777777","Wakiso", "112980"),
+        Schools(5,"Strathmore University", "Institiution" ,"+25677777777","Wakiso", "112980"),
+        Schools(6,"University of Nairobi", "School","+25677777777","Wakiso", "112980"),
     )
 
 
@@ -113,16 +114,20 @@ class School_fees_Fragment : Fragment() {
 
 
         schoolsViewModel.addSchools(items)
-        schoolsViewModel.getSchoolData()
-
-        Log.d("room Response", schoolsViewModel.getSchoolData().toString())
 
 
+        schoolsViewModel.allSchools.observe(viewLifecycleOwner, Observer { schools ->
+            schools?.let { recylerViewAdapter.setSchools(it)
+            }
+        })
 
 
 
         //Recyclerview Adapter
-        recylerViewAdapter = SchoolFeesRecyclerViewAdapter(items)
+        recylerViewAdapter = SchoolFeesRecyclerViewAdapter(){items ->
+            navigateToDetailsScreen(items)
+
+        }
 
         //recyclerview viewbinding
         binding.schoolListRecyclerview.apply {
@@ -135,7 +140,17 @@ class School_fees_Fragment : Fragment() {
 
         return binding.root
     }
-//    Search bar Filter
+
+    private fun navigateToDetailsScreen(item: Schools) {
+        val action = SchoolFeesFragmentDirections.actionSchoolFeesFragmentToSchoolFeesPaymentFragment(
+            schoolName = item.schoolName,
+            schoolType = item.schoolType,
+            schoolLocation = item.schoolAddress
+        )
+        findNavController().navigate(action)
+    }
+
+    //    Search bar Filter
     private fun filter(text: String) {
         val filteredList = items.filter { it.schoolName.contains(text, ignoreCase = true) }
         recylerViewAdapter.filterList(filteredList)

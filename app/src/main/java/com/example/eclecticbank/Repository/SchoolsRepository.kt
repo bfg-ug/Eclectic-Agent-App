@@ -1,5 +1,6 @@
 package com.example.eclecticbank.Repository
 
+import androidx.lifecycle.LiveData
 import com.example.eclecticbank.Models.SchoolDao
 import com.example.eclecticbank.Models.Schools
 import dagger.Provides
@@ -9,7 +10,7 @@ interface SchoolsRepository {
 
     suspend fun insertschools(schools: List<Schools>)
 
-    fun getSchools(): List<Schools>
+    val schoolData: LiveData<List<Schools>>
 }
 
 class SchoolsRepositoryImpl @Inject constructor(
@@ -19,8 +20,8 @@ class SchoolsRepositoryImpl @Inject constructor(
         return schoolDao.insertSchools(schools)
     }
 
-    override fun getSchools(): List<Schools> {
-        return schoolDao.getSchoolData()
-    }
+    override val schoolData: LiveData<List<Schools>>
+        get() = schoolDao.getSchoolData()
+
 
 }

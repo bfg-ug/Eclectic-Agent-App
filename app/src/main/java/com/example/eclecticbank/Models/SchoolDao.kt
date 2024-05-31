@@ -14,7 +14,7 @@ interface SchoolDao {
 
 
     @Query("SELECT * FROM SCHOOL_TABLE")
-    fun getSchoolData(): List<Schools>
+    fun getSchoolData(): LiveData<List<Schools>>
 
 
 
