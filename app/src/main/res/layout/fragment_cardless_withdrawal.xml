@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.AdditionalScreens.CardlessWithdrawal">
+    tools:context=".view.additionalScreens.CardlessWithdrawal">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back_arrow" />
 
     <LinearLayout
         android:id="@+id/body"
@@ -12,16 +20,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:orientation="vertical"
         android:layout_margin="16dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/back_arrow"
-            />
+
 
 
         <!--Cardless withdrawal Text-->
@@ -30,9 +33,9 @@
             android:layout_height="wrap_content"
             android:text="@string/card_less_withdrawal"
             android:textColor="@color/blue"
-            android:textStyle="bold"
             android:textSize="22sp"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunito_sans_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="14sp"
-            android:text="Withdraw money from customers account without Using a card"
+            android:fontFamily="@font/nunito_sans"
+            android:text="@string/withdraw_money_from_customers_account_without_using_a_card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,6 +75,7 @@
                 android:textColorHint="@color/white"
                 android:maxLength="10"
                 android:hint="@string/eg_254712345678"
+                style="@style/inputLayoutStyle"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -97,6 +102,7 @@
                 android:textColorHint="@color/white"
                 android:maxLength="10"
                 android:hint="@string/eg_254712345678"
+                style="@style/inputLayoutStyle"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
+                style="@style/inputLayoutStyle"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -146,7 +153,7 @@
         android:text="SUBMIT"
         android:textColor="@color/white"
         android:textSize="12sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_extrabold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

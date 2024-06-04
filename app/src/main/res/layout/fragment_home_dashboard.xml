@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Views.dashboardScreens.homeDashboardFragment">
+    android:background="@color/white"
+    tools:context=".view.dashboardScreens.HomeDashboardFragment">
 
 
     <LinearLayout
@@ -16,40 +17,48 @@
         android:padding="16dp"
         >
 
+        <!--Toolbar-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp">
 
+
+            <!-- Profile image -->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/profile"
                 android:src="@drawable/profile"/>
 
+
+            <!--Eclectic Logo-->
             <ImageView
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/eclectics_logo"
                 android:src="@drawable/logo_white"/>
 
+        <!--notification icon-->
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/bell"/>
         </LinearLayout>
 
-
+        <!--Welcome bar-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
+            <!-- Welcome back text-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="@string/welcome_back_alex"
-                android:textStyle="bold"
+                android:fontFamily="@font/nunito_sans_bold"
                 android:textSize="16sp"
                 android:textColor="@color/white"/>
 
@@ -58,26 +67,31 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
 
+            <!--Agent ID Text-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="@string/agent_id_123456"
+                android:fontFamily="@font/nunito_sans_semibold"
                 android:textSize="12sp"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
+
+        <!--Last logged in Text-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/last_logged"
-            android:textSize="12dp"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:textSize="12sp"
             android:textColor="@color/white"/>
 
 
-
+        <!--View Summary Button Text-->
         <Button
             android:id="@+id/view_status_button"
             android:layout_width="wrap_content"
@@ -88,29 +102,35 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             app:strokeColor ="@color/white"
+            android:fontFamily="@font/nunito_sans_bold"
             />
 
 
     </LinearLayout>
-
+    <!--Preview Text-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/nunito_sans_semibold"
         android:text="@string/here_s_your_quick_access_to_agency_banking_services"
         android:textColor="@color/blue"
-        android:layout_margin="16dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:background="@color/light_grey"
+        />
 
+
+    <!--Services tabs-->
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:id="@+id/tab_layout"
-        app:tabInlineLabel="true"
-        app:tabTextColor="@color/grey"
+        app:tabTextColor="@color/tab_unfocused"
         app:tabIndicatorColor="@color/orange"
         app:tabSelectedTextColor="@color/orange"
-
-        app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"/>
+        android:backgroundTint="@color/light_grey"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/tab_viewpager"

@@ -7,5 +7,8 @@
     <color name="orange">#F69414</color>
     <color name="grey">#C3C3C3</color>
     <color name="light_grey">#F7F7F7</color>
+    <color name="background_grey">#E4E4E4</color>
+    <color name="tab_unfocused">#707070</color>
+    <color name="light_black">#333333</color>
     <color name="red">#FF0000</color>
 </resources>

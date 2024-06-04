@@ -6,7 +6,7 @@
     app:startDestination="@id/splashScreenFragment2">
     <fragment
         android:id="@+id/splashScreenFragment2"
-        android:name="com.example.eclecticbank.Views.OnboardingScreens.SplashScreenFragment"
+        android:name="com.example.eclecticbank.view.onboardingScreens.SplashScreenFragment"
         android:label="SplashScreenFragment" >
         <action
             android:id="@+id/action_splashScreenFragment2_to_viewpagerFragment"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewpagerFragment"
-        android:name="com.example.eclecticbank.Views.OnboardingScreens.viewpagerFragment"
+        android:name="com.example.eclecticbank.view.onboardingScreens.ViewpagerFragment"
         android:label="fragment_viewpager"
         tools:layout="@layout/fragment_viewpager" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeDashboardFragment"
-        android:name="com.example.eclecticbank.Views.dashboardScreens.homeDashboardFragment"
+        android:name="com.example.eclecticbank.view.dashboardScreens.HomeDashboardFragment"
         android:label="fragment_home_dashboard"
         tools:layout="@layout/fragment_home_dashboard" >
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/cashDepositFragment"
-        android:name="com.example.eclecticbank.Views.dashboardScreens.CashDepositFragment"
+        android:name="com.example.eclecticbank.view.dashboardScreens.CashDepositFragment"
         android:label="cashDepositFragment" >
         <action
             android:id="@+id/action_cashDepositFragment_to_homeDashboardFragment"
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/cardlessWithdrawal"
-        android:name="com.example.eclecticbank.Views.AdditionalScreens.CardlessWithdrawal"
+        android:name="com.example.eclecticbank.view.additionalScreens.CardlessWithdrawal"
         android:label="fragment_cardless_withdrawal"
         tools:layout="@layout/fragment_cardless_withdrawal" >
         <action
@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/mobileMoneyWithdrawal"
-        android:name="com.example.eclecticbank.Views.AdditionalScreens.MobileMoneyWithdrawal"
+        android:name="com.example.eclecticbank.view.additionalScreens.MobileMoneyWithdrawal"
         android:label="fragment_mobile_money_withdrawal"
         tools:layout="@layout/fragment_mobile_money_withdrawal" >
         <action
@@ -79,11 +79,11 @@
     </fragment>
     <fragment
         android:id="@+id/bottonsheetFragement"
-        android:name="com.example.eclecticbank.Views.AdditionalScreens.BottonsheetFragement"
+        android:name="com.example.eclecticbank.view.additionalScreens.BottonsheetFragement"
         android:label="BottonsheetFragement" />
     <fragment
         android:id="@+id/school_fees_Fragment"
-        android:name="com.example.eclecticbank.Views.AdditionalScreens.SchoolFeesFragment"
+        android:name="com.example.eclecticbank.view.additionalScreens.SchoolFeesFragment"
         android:label="fragment_school_fees_"
         tools:layout="@layout/fragment_school_fees_" >
         <action
@@ -107,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/school_Fees_Payment_Fragment"
-        android:name="com.example.eclecticbank.Views.AdditionalScreens.SchoolFeesPaymentFragment"
+        android:name="com.example.eclecticbank.view.additionalScreens.SchoolFeesPaymentFragment"
         android:label="fragment_school__fees__payment_"
         tools:layout="@layout/fragment_school__fees__payment_" >
         <action

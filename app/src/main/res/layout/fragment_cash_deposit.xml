@@ -4,36 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.dashboardScreens.homeDashboardFragment">
+    tools:context=".view.dashboardScreens.HomeDashboardFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back_arrow" />
 
 
     <LinearLayout
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/back_arrow"
-            />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
 
         <!--Cash deposit Text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunito_sans_bold"
             android:text="@string/cash_deposit"
             android:textColor="@color/blue"
-            android:textStyle="bold"
             android:textSize="22sp"
-            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,8 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
+            android:fontFamily="@font/nunito_sans"
             android:text="@string/deposit_money_on_behalf_of_your_customers_to_their_accounts"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,11 +55,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/select_bank"
-            >
+            android:hint="@string/select_bank">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextview"
+                style="@style/inputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none" />
@@ -69,20 +71,19 @@
             android:id="@+id/accountNumberContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/account_number"
             android:layout_marginTop="16dp"
-            app:helperText=""
-            app:helperTextTextColor="@color/red"
+            android:hint="@string/account_number"
             android:maxLength="12"
-            >
+            app:helperText=""
+            app:helperTextTextColor="@color/red">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/accountNumberTextField"
+                style="@style/inputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="12"
-                />
+                android:maxLength="12" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,8 +92,8 @@
             android:id="@+id/phoneNumberContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/customer_phone_number"
             android:layout_marginTop="16dp"
+            android:hint="@string/customer_phone_number"
             app:helperText=""
             app:helperTextTextColor="@color/red"
 
@@ -100,11 +101,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneNumberTextField"
+                style="@style/inputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="10"
-                />
+                android:maxLength="10" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,20 +114,18 @@
             android:id="@+id/amountContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/amount"
             android:layout_marginTop="16dp"
-            app:helperText=""
-            app:helperTextTextColor="@color/red"
+            android:hint="@string/amount"
             android:maxLength="8"
-            >
+            app:helperText=""
+            app:helperTextTextColor="@color/red">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/amountTextField"
+                style="@style/inputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-
-                />
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,8 +134,8 @@
             android:id="@+id/narrationContainer"
             android:layout_width="match_parent"
             android:layout_height="77dp"
-            android:hint="@string/narration"
             android:layout_marginTop="16dp"
+            android:hint="@string/narration"
             app:helperText=""
             app:helperTextTextColor="@color/red"
 
@@ -144,14 +143,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/narrationtextField"
+                style="@style/inputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
-                />
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
     </LinearLayout>
@@ -165,10 +162,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="24dp"
+        android:fontFamily="@font/nunito_sans_extrabold"
         android:text="@string/make_deposit"
-        android:textSize="12sp"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

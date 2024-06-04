@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Views.OnboardingScreens.onBoardingScreen1">
+    tools:context=".view.onboardingScreens.OnBoardingScreen1">
 
     <!--Company Logo-->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/eclectics_logo"
         android:src="@drawable/eclecticslogo"
         android:paddingTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +43,7 @@
         android:text="@string/give_permissions_to_have_a_better_experience"
         android:textColor="@color/blue"
         android:textSize="14sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_bold"
         android:layout_marginHorizontal="30dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +53,7 @@
     <!--Permission list-->
     <LinearLayout
         android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="16dp"
+        android:layout_marginVertical="8dp"
         android:id="@+id/permissionColmun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,15 +62,19 @@
         app:layout_constraintTop_toBottomOf="@+id/onboardingText"
         android:orientation="vertical">
 
-
+        <!--Contacts Permission-->
         <LinearLayout
+            android:background="@color/background_grey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp"
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/contacts"
                 android:src="@drawable/contact"/>
 
             <LinearLayout
@@ -81,8 +86,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nunito_sans_bold"
                     android:text="@string/contacts"
                     android:textSize="12sp"/>
 
@@ -90,6 +94,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/we_access_your_contacts_to_make_transactions"
+                    android:fontFamily="@font/nunito_sans"
+                    android:textColor="@color/light_black"
                     android:textSize="12sp"/>
 
 
@@ -97,8 +103,12 @@
 
 
         </LinearLayout>
+
+        <!--Storage Permission-->
         <LinearLayout
-            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@color/background_grey"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -106,6 +116,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/storage"
                 android:src="@drawable/storage"/>
 
             <LinearLayout
@@ -117,15 +128,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nunito_sans_bold"
                     android:text="@string/storage"
                     android:textSize="12sp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:fontFamily="@font/nunito_sans"
                     android:text="@string/make_downloads_of_your_statements"
+                    android:textColor="@color/light_black"
                     android:textSize="12sp"/>
 
 
@@ -133,8 +145,12 @@
 
 
         </LinearLayout>
+
+        <!--Location Permission-->
         <LinearLayout
-            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@color/background_grey"
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -142,6 +158,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/location"
                 android:src="@drawable/location"/>
 
             <LinearLayout
@@ -153,14 +170,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/nunito_sans_bold"
                     android:textSize="12sp"
                     android:text="@string/location" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans"
                     android:text="@string/to_give_you_available_service_via_maps"
+                    android:textColor="@color/light_black"
                     android:textSize="12sp"/>
 
 
@@ -180,8 +199,9 @@
         android:layout_height="wrap_content"
         android:text="@string/give_all_permission"
         android:layout_marginTop="22dp"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textColor="@color/white"
+        android:fontFamily="@font/nunito_sans_semibold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/permissionColmun" />
@@ -201,7 +221,6 @@
 
     <!--Skip and next buttons-->
 
-
     <TextView
         android:id="@+id/skiptext"
         android:layout_width="wrap_content"
@@ -211,27 +230,24 @@
         android:text="@string/skip"
         android:textAlignment="center"
         android:textSize="16sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="35dp"
-
-        />
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="35dp"/>
 
 
     <ImageView
-        android:id="@+id/nextArrow"
+        android:id="@id/nextArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:contentDescription="@string/next_arrow"
         android:src="@drawable/forward_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="35dp"
-        />
-
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="35dp"/>
 
 
 
