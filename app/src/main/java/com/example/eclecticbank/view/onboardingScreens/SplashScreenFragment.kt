@@ -15,6 +15,13 @@ class SplashScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Display splash screen
+        return inflater.inflate(R.layout.fragment_splash_screen, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         Handler().postDelayed({
 
             //if completed onboarding send to dashboard
@@ -27,17 +34,23 @@ class SplashScreenFragment : Fragment() {
             }
 
         },1500)
-
-        //Display splash screen
-        return inflater.inflate(R.layout.fragment_splash_screen, container, false)
     }
-        //Set on completed shard preference to false on first install
-        private fun onBoardingComplete():Boolean{
-            val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
 
-            return sharedPref.getBoolean("Finished", false)
 
-        }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Handler().removeCallbacksAndMessages(null)
+    }
+
+
+
+    //Set on completed shard preference to false on first install
+    private fun onBoardingComplete():Boolean{
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+
+        return sharedPref.getBoolean("Finished", false)
+
+    }
 
 
 }

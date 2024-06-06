@@ -25,8 +25,17 @@ class OnBoardingScreen3 : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        // Inflate the layout for this fragment
+        _binding = FragmentOnBoardingScreeen3Binding.inflate(inflater, container, false)
 
+
+        return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[OnBoardingViewModel::class.java]
 
@@ -44,8 +53,6 @@ class OnBoardingScreen3 : Fragment() {
             }
         }
 
-        // Inflate the layout for this fragment
-        _binding = FragmentOnBoardingScreeen3Binding.inflate(inflater, container, false)
 
         val viewpager = activity?.findViewById<ViewPager2>(R.id.viewPager)
 
@@ -74,8 +81,15 @@ class OnBoardingScreen3 : Fragment() {
 
         }
 
-        return binding.root
+
     }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 
 
 }

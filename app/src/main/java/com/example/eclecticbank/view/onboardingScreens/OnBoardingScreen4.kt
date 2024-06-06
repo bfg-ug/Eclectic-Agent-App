@@ -27,6 +27,14 @@ class OnBoardingScreen4 : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentOnBoardingScreen4Binding.inflate(inflater, container, false)
 
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
         val viewpager = activity?.findViewById<ViewPager2>(R.id.viewPager)
 
 
@@ -39,10 +47,12 @@ class OnBoardingScreen4 : Fragment() {
         binding.getStartedText.setOnClickListener(){
             findNavController().navigate(R.id.action_viewpagerFragment_to_homeDashboardFragment)
             onBoardingComplete()
-
         }
+    }
 
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

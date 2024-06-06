@@ -59,47 +59,28 @@
 
 
 
-        <!--Button Row-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            >
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/institutionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/institution"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/schoolButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="School"
-                android:textColor="@color/grey"
-                android:textStyle="bold"
-                android:backgroundTint="@color/light_grey"
-                />
-
-        </LinearLayout>
-
-
-
-        <!--RecyclerView for school fees list-->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/schoolListRecyclerview"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
-            />
+            android:layout_marginVertical="8dp"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            android:background="@drawable/tab_layout_rounded_corners"
+            style="@style/tablayoutstyle"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/grey"
+            >
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
 
 
 

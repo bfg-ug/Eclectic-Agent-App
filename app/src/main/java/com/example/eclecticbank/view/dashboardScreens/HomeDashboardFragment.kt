@@ -20,12 +20,18 @@ class HomeDashboardFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeDashboardBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         // List of fragment screens
-        val fragmentList = arrayListOf<Fragment>(
+        val fragmentList = arrayListOf(
             CashServicesFragment(),
             AgentServicesFragment(),
             CustomerEnquriesFragment()
@@ -33,7 +39,7 @@ class HomeDashboardFragment : Fragment() {
 
 
         // List of tab title
-        val titleList = arrayListOf<String>(
+        val titleList = arrayListOf(
             "Cash Service",
             "Agent Services",
             "Customer Enquries"
@@ -51,10 +57,12 @@ class HomeDashboardFragment : Fragment() {
             tab.text = titleList[position]
         }.attach()
 
+    }
 
 
-
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

@@ -83,7 +83,7 @@
 
         <!--Recipients phone number input field-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phoneNumberContainer"
+            android:id="@+id/recipentsphoneNumberContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -95,7 +95,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneNumberTextField"
+                android:id="@+id/recipientsphoneNumberTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -150,7 +150,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:text="SUBMIT"
+        android:text="@string/submit"
         android:textColor="@color/white"
         android:textSize="12sp"
         android:fontFamily="@font/nunito_sans_extrabold"

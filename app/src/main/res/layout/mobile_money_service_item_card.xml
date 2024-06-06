@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--Card View widget-->
-<androidx.cardview.widget.CardView
+<LinearLayout
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardview"
     android:layout_width="104dp"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
-    card_view:cardCornerRadius="8dp"
     android:layout_margin="8dp"
-    android:background="@drawable/cardview_outlined_border"
-    >
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/outlinedborder">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_margin="8dp"
-        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,9 +22,9 @@
 
             <RadioButton
                 android:id="@+id/serviceProviderToggle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/grey"
+                android:buttonTint="@color/light_grey"
                 android:layout_weight="1"
                 />
 
@@ -47,7 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-    </LinearLayout>
 
 
-</androidx.cardview.widget.CardView>
+</LinearLayout>

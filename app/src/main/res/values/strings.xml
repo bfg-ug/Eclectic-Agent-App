@@ -27,7 +27,7 @@
     <string name="make_deposit">MAKE DEPOSIT</string>
     <string name="confirm">CONFIRM</string>
     <string name="cancel">CANCEL</string>
-    <string name="confirm_transaction">CONFIRM TRANSACTION</string>
+    <string name="confirm_transaction">Confirm transaction</string>
     <string name="account_name">ACCOUNT NAME</string>
     <string name="account_number_uppercase">ACCOUNT NUMBER</string>
     <string name="amount_uppercase">AMOUNT</string>

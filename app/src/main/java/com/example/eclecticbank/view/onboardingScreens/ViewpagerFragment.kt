@@ -16,10 +16,16 @@ class ViewpagerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding= FragmentViewpagerBinding.inflate(inflater, container, false)
 
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val fragmentList = arrayListOf<Fragment>(
             OnBoardingScreen1(),
             OnBoardingScreen2(),
@@ -30,12 +36,11 @@ class ViewpagerFragment : Fragment() {
         val adapter = OnboardingViewPagerAdapter(fragmentList, getChildFragmentManager(), lifecycle)
 
         binding.viewPager.adapter = adapter
-
-
-
-
-
-
-        return binding.root
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eclecticbank.model.BottomSheetOption
 import com.example.eclecticbank.model.Service
 import com.example.eclecticbank.R
-import com.example.eclecticbank.view.additionalScreens.BottonsheetFragement
+import com.example.eclecticbank.view.additionalScreens.Bottonsheet
 import com.example.eclecticbank.databinding.ServiceIconLayoutBinding
 
 
@@ -30,7 +30,7 @@ class ServiceIconAdapter(private val items: List<Service>) : RecyclerView.Adapte
                     )
 
 
-                    val bottomSheet = BottonsheetFragement.newInstance(cards, "Select one cash withdrawal option")
+                    val bottomSheet = Bottonsheet.newInstance(cards, "Select one cash withdrawal option")
                     bottomSheet.show((itemView.context as AppCompatActivity).supportFragmentManager, bottomSheet.tag)
                 }else if(item.serviceName == "Cash Collection"){
                     val cards = listOf(
@@ -41,7 +41,7 @@ class ServiceIconAdapter(private val items: List<Service>) : RecyclerView.Adapte
                     )
 
 
-                    val bottomSheet = BottonsheetFragement.newInstance(cards, "Select one payment from the list")
+                    val bottomSheet = Bottonsheet.newInstance(cards, "Select one payment from the list")
                     bottomSheet.show((itemView.context as AppCompatActivity).supportFragmentManager, bottomSheet.tag)
 
                 }

@@ -12,12 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.eclecticbank.model.SchoolFeesOption
 import com.example.eclecticbank.model.Schools
 import com.example.eclecticbank.view.adapter.SchoolFeesRecyclerViewAdapter
 import com.example.eclecticbank.R
 import com.example.eclecticbank.viewModel.SchoolsViewModel
 import com.example.eclecticbank.databinding.FragmentSchoolFeesBinding
+import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,27 +44,40 @@ class SchoolFeesFragment : Fragment() {
 
 
 
-    private val schoolListItemOnClicked = { item: SchoolFeesOption ->
-        when(item.index){
-            0 -> findNavController().navigate(R.id.action_homeDashboardFragment_to_cardlessWithdrawal)
-            1 -> findNavController().navigate( R.id.action_homeDashboardFragment_to_mobileMoneyWithdrawal)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentSchoolFeesBinding.inflate(inflater, container, false)
 
+        val tabitems = arrayListOf(
+            "School",
+            "Institution",
+        )
+
+        schoolsViewModel.addSchools(items)
 
 
+        schoolsViewModel.allSchools.observe(viewLifecycleOwner, Observer { schools ->
+            schools?.let { recylerViewAdapter.setSchools(it)
+            }
+        })
+
+
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("School"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Institution"))
         binding.toolbar.setOnClickListener{
             findNavController().navigate(R.id.action_school_fees_Fragment_to_homeDashboardFragment)
         }
-
-
 
 
 //        Searchview binding
@@ -78,10 +91,6 @@ class SchoolFeesFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-
-
-
-        //Focused Colors
         val defaultColor = ContextCompat.getColor(requireContext(), R.color.light_grey)
         val focusedColor = ContextCompat.getColor(requireContext(), R.color.blue)
         val defaultFontColor = ContextCompat.getColor(requireContext(), R.color.grey)
@@ -89,34 +98,20 @@ class SchoolFeesFragment : Fragment() {
 
 
 
-        //School button
-        binding.schoolButton.setOnClickListener{
-            binding.schoolButton.setBackgroundColor(focusedColor)
-            binding.institutionButton.setBackgroundColor(defaultColor)
-            binding.schoolButton.setTextColor(focusedFontColor)
-            binding.institutionButton.setTextColor(defaultFontColor)
+        // Customize the tab layout
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                tab.view.setBackgroundResource(R.drawable.tab_layout_tab_focused)
 
-            filterByType("School")
+            }
 
-        }
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+                tab.view.setBackgroundResource(R.drawable.tablayout_tab_unfocused)
+            }
 
-        //Institution button
-        binding.institutionButton.setOnClickListener{
-            binding.schoolButton.setBackgroundColor(defaultColor)
-            binding.institutionButton.setBackgroundColor(focusedColor)
-            binding.schoolButton.setTextColor(defaultFontColor)
-            binding.institutionButton.setTextColor(focusedFontColor)
-
-            filterByType("Institution")
-
-        }
-
-
-        schoolsViewModel.addSchools(items)
-
-
-        schoolsViewModel.allSchools.observe(viewLifecycleOwner, Observer { schools ->
-            schools?.let { recylerViewAdapter.setSchools(it)
+            override fun onTabReselected(tab: TabLayout.Tab) {
+                // Handle reselection if needed
+                tab.view.setBackgroundResource(R.drawable.tab_layout_tab_focused)
             }
         })
 
@@ -129,15 +124,16 @@ class SchoolFeesFragment : Fragment() {
         }
 
         //recyclerview viewbinding
-        binding.schoolListRecyclerview.apply {
+        binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = recylerViewAdapter
         }
+    }
 
 
-
-
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding =null
     }
 
     private fun navigateToDetailsScreen(item: Schools) {
@@ -151,14 +147,8 @@ class SchoolFeesFragment : Fragment() {
 
     //    Search bar Filter
     private fun filter(text: String) {
-        val filteredList = items.filter { it.schoolName.contains(text, ignoreCase = true) }
-        recylerViewAdapter.filterList(filteredList)
+        schoolsViewModel.searchSchools(text)
     }
 
-    //Filter by type
-    private fun filterByType(text: String) {
-        val filteredList = items.filter { it.schoolType.contains(text, ignoreCase = true) }
-        recylerViewAdapter.filterList(filteredList)
-    }
 
 }

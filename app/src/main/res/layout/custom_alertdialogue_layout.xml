@@ -1,237 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/rounded_corners"
-    >
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/rounded_top">
-        <TextView
-            android:id="@+id/dialogueTitle"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/confirm_transaction"
+            android:orientation="horizontal"
+            android:background="@drawable/rounded_top"
+            android:backgroundTint="@color/blue"
+            >
+            <TextView
+                android:id="@+id/dialogueTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_transaction"
+                android:textColor="@color/white"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textSize="18sp"
+                android:padding="16dp"/>
+
+            <ImageView
+                android:id="@+id/close_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/close_icon"
+                android:paddingRight="16dp"
+                />
+        </LinearLayout>
+
+
+
+        <!--Account number-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/account_name"
+                android:textSize="14sp"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+            <TextView
+                android:id="@+id/accountName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+        </LinearLayout>
+
+        <!--Account number-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/account_number_uppercase"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+            <TextView
+                android:id="@+id/accountnumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+        </LinearLayout>
+
+        <!--Amount-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/amount_uppercase"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+        </LinearLayout>
+
+
+        <!--Charge-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/charge"
+                android:textSize="14sp"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+            <TextView
+                android:id="@+id/chargefield"
+                android:layout_width = "0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                />
+
+        </LinearLayout>
+
+
+        <!--Excise duty-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/excise_duty"
+                android:textSize="14sp"
+                />
+
+            <TextView
+                android:id="@+id/excisedutyfield"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+        </LinearLayout>
+
+
+        <!--Narration-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/narration_uppercase"
+                android:textSize="14sp"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+            <TextView
+                android:id="@+id/narrationfield"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+        </LinearLayout>
+
+
+
+        <!--REF NO:-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ref_no"
+                android:textSize="14sp"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+            <TextView
+                android:id="@+id/refNofield"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/nunito_sans"
+                />
+
+        </LinearLayout>
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:padding="16dp"/>
-
-        <ImageView
-            android:id="@+id/close_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/close_icon"
-            android:paddingRight="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="16dp"
             />
-    </LinearLayout>
 
-
-
-<!--Account number-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/account_name"
-            android:textSize="14sp"
+            android:text="@string/cancel"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="16dp"
             />
 
-        <TextView
-            android:id="@+id/accountName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
 
     </LinearLayout>
 
-<!--Account number-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/account_number_uppercase"
-            />
-
-        <TextView
-            android:id="@+id/accountnumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
-
-    </LinearLayout>
-
-<!--Amount-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/amount_uppercase"
-            />
-
-        <TextView
-            android:id="@+id/amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
-
-    </LinearLayout>
-
-
-<!--Charge-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/charge"
-            android:textSize="14sp"
-            />
-
-        <TextView
-            android:id="@+id/chargefield"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
-
-    </LinearLayout>
-
-
-<!--Excise duty-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/excise_duty"
-            android:textSize="14sp"
-            />
-
-        <TextView
-            android:id="@+id/excisedutyfield"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
-
-    </LinearLayout>
-
-
-<!--Narration-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/narration_uppercase"
-            android:textSize="14sp"
-            />
-
-        <TextView
-            android:id="@+id/narrationfield"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
-
-    </LinearLayout>
-
-
-
-<!--REF NO:-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/ref_no"
-            android:textSize="14sp"
-            />
-
-        <TextView
-            android:id="@+id/refNofield"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            />
-
-    </LinearLayout>
-
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/confirm_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/confirm"
-        android:textColor="@color/white"
-        android:layout_marginTop="24dp"
-        android:layout_marginHorizontal="16dp"
-        />
-
-    <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_marginBottom="16dp"
-        android:layout_marginHorizontal="16dp"
-        />
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

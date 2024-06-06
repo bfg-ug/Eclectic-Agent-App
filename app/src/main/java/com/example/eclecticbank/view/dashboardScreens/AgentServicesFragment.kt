@@ -21,9 +21,17 @@ class AgentServicesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentAgentServicesBinding.inflate(inflater, container, false)
+
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
 
         // List of services
@@ -43,10 +51,12 @@ class AgentServicesFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(),3)
             adapter = serviceIconAdapter
         }
+    }
 
 
-
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

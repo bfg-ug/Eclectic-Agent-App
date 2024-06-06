@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class BottonsheetFragement(private val items: List<BottomSheetOption>, private val bottomsheetTitleText: String) : BottomSheetDialogFragment() {
+class Bottonsheet(private val items: List<BottomSheetOption>, private val bottomsheetTitleText: String) : BottomSheetDialogFragment() {
 
     private var _binding: CashWithdrawalBottomSheetBinding? = null
     private val binding get() = _binding!!
@@ -36,35 +36,9 @@ class BottonsheetFragement(private val items: List<BottomSheetOption>, private v
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding =  CashWithdrawalBottomSheetBinding.inflate(inflater, container, false)
-
-
-        binding.bottomSheetTitleText.text = bottomsheetTitleText
-
-
-        binding.closeButton.setOnClickListener{
-            dismiss()
-        }
-
-
-
-
-        // Bottom sheet adapter
-        rectangularWidgetRecyclerViewAdapter = RectangularWidgetRecyclerViewAdapter(items, onDashboardItemClicked)
-
-        //recyclerview viewbinding
-        binding.bottomSheetRecyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            adapter = rectangularWidgetRecyclerViewAdapter
-        }
-
-
-
-        dialog?.setCanceledOnTouchOutside(true)
-        dialog?.setCancelable(true)
-
 
         return binding.root
     }
@@ -85,6 +59,32 @@ class BottonsheetFragement(private val items: List<BottomSheetOption>, private v
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.bottomSheetTitleText.text = bottomsheetTitleText
+
+
+        binding.closeButton.setOnClickListener{
+            dismiss()
+        }
+
+
+        // Bottom sheet adapter
+        rectangularWidgetRecyclerViewAdapter = RectangularWidgetRecyclerViewAdapter(items, onDashboardItemClicked)
+
+        //recyclerview viewbinding
+        binding.bottomSheetRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            adapter = rectangularWidgetRecyclerViewAdapter
+        }
+
+
+
+        dialog?.setCanceledOnTouchOutside(true)
+        dialog?.setCancelable(true)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -92,7 +92,7 @@ class BottonsheetFragement(private val items: List<BottomSheetOption>, private v
 
     companion object {
         fun newInstance(items: List<BottomSheetOption>, bottomsheetTitleText: String): BottomSheetDialogFragment {
-            return BottonsheetFragement(items, bottomsheetTitleText)
+            return Bottonsheet(items, bottomsheetTitleText)
         }
     }
 

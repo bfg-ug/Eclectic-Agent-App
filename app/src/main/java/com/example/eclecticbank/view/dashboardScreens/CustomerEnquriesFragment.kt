@@ -22,11 +22,16 @@ class CustomerEnquriesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCustomerEnquriesBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         //List of services
         val items = listOf(
@@ -47,8 +52,12 @@ class CustomerEnquriesFragment : Fragment() {
         }
 
 
+    }
 
-        return binding.root
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

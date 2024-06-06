@@ -1,6 +1,7 @@
 package com.example.eclecticbank.view.adapter
 
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -43,11 +44,11 @@ class MobileMoneyRecyclerViewAdapter(private val items: List<MobileMoneyOption>)
 
             // Change the background color if selected
             if (item.isSelected) {
-                binding.cardview.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.blue))
+                binding.cardview.background = ContextCompat.getDrawable(binding.root.context, R.drawable.outlinedborderwithcolor)
                 binding.serviceProviderTextview.setTextColor(ContextCompat.getColor(binding.root.context, R.color.white))
                 binding.serviceProviderToggle.buttonTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.white))
             } else {
-                binding.cardview.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.white))
+                binding.cardview.background = ContextCompat.getDrawable(binding.root.context, R.drawable.outlinedborder)
                 binding.serviceProviderTextview.setTextColor(ContextCompat.getColor(binding.root.context, R.color.grey))
                 binding.serviceProviderToggle.buttonTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.light_grey))
             }

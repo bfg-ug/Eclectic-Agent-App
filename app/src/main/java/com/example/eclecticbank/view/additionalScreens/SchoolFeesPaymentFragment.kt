@@ -1,16 +1,22 @@
 package com.example.eclecticbank.view.additionalScreens
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.eclecticbank.model.Schools
 import com.example.eclecticbank.R
 import com.example.eclecticbank.databinding.FragmentSchoolFeesPaymentBinding
+import com.example.eclecticbank.viewModel.InputValidationViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class SchoolFeesPaymentFragment() : Fragment() {
+@AndroidEntryPoint
+class SchoolFeesPaymentFragment : Fragment() {
+    private val inputValidationViewModel: InputValidationViewModel by viewModels()
 
     private var _binding: FragmentSchoolFeesPaymentBinding? = null
     private val binding get() = _binding!!
@@ -19,17 +25,13 @@ class SchoolFeesPaymentFragment() : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
 
 
         // Inflate the layout for this fragment
         _binding = FragmentSchoolFeesPaymentBinding.inflate(inflater, container, false)
 
-
-        binding.toolbar.setOnClickListener{
-            findNavController().navigate(R.id.action_school_Fees_Payment_Fragment_to_school_fees_Fragment)
-        }
 
         return binding.root
     }
@@ -42,6 +44,56 @@ class SchoolFeesPaymentFragment() : Fragment() {
         val schoolLocation = arguments?.getString("schoolLocation")
 
         binding.schoolTitle.text = schoolName
+
+        setupTextWatchers()
+        observeValidationResults()
+
+        binding.toolbar.setOnClickListener{
+            findNavController().navigate(R.id.action_school_Fees_Payment_Fragment_to_school_fees_Fragment)
+        }
+    }
+
+    private fun setupTextWatchers() {
+        binding.accountNumberTextField.addTextChangedListener(createTextWatcher {
+            inputValidationViewModel.validateAccountnumber(it)
+        })
+        binding.phoneNumberTextField.addTextChangedListener(createTextWatcher {
+            inputValidationViewModel.validatePhoneNumber(it)
+        })
+        binding.amountTextField.addTextChangedListener(createTextWatcher {
+            inputValidationViewModel.validateAmount(it)
+        })
+        binding.narrationtextField.addTextChangedListener(createTextWatcher {
+            inputValidationViewModel.validateNarration(it)
+        })
+    }
+
+    private fun createTextWatcher(validationFunction: (String) -> Unit): TextWatcher {
+        return object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                validationFunction(s.toString())
+            }
+        }
+    }
+
+    private fun observeValidationResults() {
+        inputValidationViewModel.phoneNumberValidation.observe(viewLifecycleOwner) { result ->
+            binding.phoneNumberContainer.error = if (result.isValid) null else result.message
+        }
+
+        inputValidationViewModel.amountValidation.observe(viewLifecycleOwner) { result ->
+            binding.amountContainer.error = if (result.isValid) null else result.message
+        }
+
+        inputValidationViewModel.narrationValidation.observe(viewLifecycleOwner) { result ->
+            binding.narrationContainer.error = if (result.isValid) null else result.message
+        }
+
+        inputValidationViewModel.isDepositFormValid.observe(viewLifecycleOwner) { isValid ->
+            binding.makeDepositButton.isEnabled = isValid
+        }
     }
 
     override fun onDestroyView() {
@@ -50,11 +102,5 @@ class SchoolFeesPaymentFragment() : Fragment() {
     }
 
 
-
-    companion object {
-        fun newInstance(schools: Schools): SchoolFeesPaymentFragment {
-            return SchoolFeesPaymentFragment()
-        }
-    }
 
 }

@@ -18,5 +18,12 @@ interface SchoolDao {
     fun getSchoolData(): LiveData<List<Schools>>
 
 
+    @Query("SELECT * FROM SCHOOL_TABLE WHERE school_type = :schoolType")
+    fun getSchoolDataByType(schoolType: String): List<Schools>
+
+    @Query("SELECT * FROM SCHOOL_TABLE WHERE school_name = :schoolName")
+    suspend fun getSchoolDataByName(schoolName: String): List<Schools>
+
+
 
 }

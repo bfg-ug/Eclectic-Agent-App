@@ -21,9 +21,17 @@ class CashServicesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCashServicesBinding.inflate(inflater, container, false)
+
+        //return view
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
 
 
 
@@ -49,9 +57,11 @@ class CashServicesFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(),3)
             adapter = serviceIconAdapter
         }
+    }
 
-        //return view
-        return binding.root
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

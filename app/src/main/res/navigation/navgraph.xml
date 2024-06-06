@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/cashDepositFragment"
-        android:name="com.example.eclecticbank.view.dashboardScreens.CashDepositFragment"
+        android:name="com.example.eclecticbank.view.additionalScreens.CashDepositFragment"
         android:label="cashDepositFragment" >
         <action
             android:id="@+id/action_cashDepositFragment_to_homeDashboardFragment"
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/bottonsheetFragement"
-        android:name="com.example.eclecticbank.view.additionalScreens.BottonsheetFragement"
+        android:name="com.example.eclecticbank.view.additionalScreens.Bottonsheet"
         android:label="BottonsheetFragement" />
     <fragment
         android:id="@+id/school_fees_Fragment"

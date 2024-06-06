@@ -9,5 +9,9 @@ interface SchoolsRepository {
 
     suspend fun insertschools(schools: List<Schools>)
 
+    suspend fun getSchoolByType(type: String):List<Schools>
+
+    suspend fun getSchoolByName(query: String):List<Schools>
+
     val schoolData: LiveData<List<Schools>>
 }
