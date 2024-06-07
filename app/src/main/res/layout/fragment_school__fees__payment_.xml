@@ -79,11 +79,13 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/accountNumberTextField"
+                android:id="@+id/admissionNumberTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 style="@style/inputLayoutStyle"
+                android:hint="@string/_123456"
+                android:textColorHint="@color/white"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -107,6 +109,8 @@
                 android:inputType="number"
                 android:maxLength="10"
                 style="@style/inputLayoutStyle"
+                android:hint="@string/eg_254712345678"
+                android:textColorHint="@color/white"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>

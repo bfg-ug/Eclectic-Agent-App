@@ -88,6 +88,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
+                android:hint="@string/eg_254712345678"
+                android:textColorHint="@color/white"
                 style="@style/inputLayoutStyle"
                 />
 

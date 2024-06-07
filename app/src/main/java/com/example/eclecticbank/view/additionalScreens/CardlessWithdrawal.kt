@@ -1,5 +1,6 @@
 package com.example.eclecticbank.view.additionalScreens
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -29,8 +30,6 @@ class CardlessWithdrawal : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding =  FragmentCardlessWithdrawalBinding.inflate(inflater, container, false)
-
-
         return binding.root
     }
 
@@ -40,6 +39,23 @@ class CardlessWithdrawal : Fragment() {
         //Back arrow
         binding.toolbar.setOnClickListener{
             findNavController().navigate(R.id.action_cardlessWithdrawal_to_homeDashboardFragment)
+        }
+
+        binding.intiatorsphoneNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                binding.intiatorsphoneNumberTextField.setHintTextColor(Color.GRAY)
+
+            }else{
+                binding.intiatorsphoneNumberTextField.setHintTextColor(Color.WHITE)
+            }
+        }
+        binding.recipientsphoneNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                binding.recipientsphoneNumberTextField.setHintTextColor(Color.GRAY)
+            }else{
+                binding.recipientsphoneNumberTextField.setHintTextColor(Color.WHITE)
+            }
+
         }
 
         setupTextWatchers()

@@ -1,5 +1,6 @@
 package com.example.eclecticbank.view.additionalScreens
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -55,6 +56,14 @@ class MobileMoneyWithdrawal : Fragment() {
         binding.mobileMoneyRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = mobileMoneyRecyclerViewAdapter
+        }
+
+        binding.phoneNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                binding.phoneNumberTextField.setHintTextColor(Color.GRAY)
+            }else{
+                binding.phoneNumberTextField.setHintTextColor(Color.WHITE)
+            }
         }
 
         setupTextWatchers()

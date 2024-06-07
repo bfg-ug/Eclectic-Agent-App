@@ -15,6 +15,10 @@ class ValidatePhoneNumber {
                 isValid = false,
                 message = "Phone number is not valid"
             )
+            phoneNumber.length < 10 -> ValidationResult(
+                isValid = false,
+                message = "Phone number must be 10 digits"
+            )
             else -> ValidationResult(
                 isValid = true,
                 message = null

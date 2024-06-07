@@ -67,6 +67,24 @@ class CashDepositFragment : Fragment() {
 
         binding.autoCompleteTextview.setAdapter(arrayAdapter)
 
+
+        binding.accountNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                binding.accountNumberTextField.setHintTextColor(Color.GRAY)
+            } else {
+                binding.accountNumberTextField.setHintTextColor(Color.WHITE)
+            }
+        }
+
+        binding.phoneNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus){
+                binding.phoneNumberTextField.setHintTextColor(Color.GRAY)
+            }else{
+                binding.phoneNumberTextField.setHintTextColor(Color.WHITE)
+            }
+        }
+
+
         setupTextWatchers()
         observeValidationResults()
 

@@ -60,6 +60,8 @@
     <string name="eclectics_logo">Eclectics logo</string>
     <string name="profile">Profile</string>
     <string name="withdraw_money_from_customers_account_without_using_a_card">Withdraw money from customers account without Using a card</string>
+    <string name="_020001254712345678">020001254712345678</string>
+    <string name="_123456">123456</string>
 
     <string-array name="languages">
         <item>English</item>

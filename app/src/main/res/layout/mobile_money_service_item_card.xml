@@ -24,7 +24,7 @@
                 android:id="@+id/serviceProviderToggle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/light_grey"
+                android:buttonTint="@color/grey"
                 android:layout_weight="1"
                 />
 

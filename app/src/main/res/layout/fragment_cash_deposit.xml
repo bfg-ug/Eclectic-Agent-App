@@ -83,6 +83,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:hint="@string/_020001254712345678"
+                android:textColorHint="@color/white"
                 android:maxLength="12" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,6 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
+                android:hint="@string/eg_254712345678"
+                android:textColorHint="@color/white"
                 android:maxLength="15" />
 
         </com.google.android.material.textfield.TextInputLayout>

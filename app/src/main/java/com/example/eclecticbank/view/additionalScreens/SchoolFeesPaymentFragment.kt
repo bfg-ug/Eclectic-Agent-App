@@ -1,5 +1,6 @@
 package com.example.eclecticbank.view.additionalScreens
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -45,6 +46,22 @@ class SchoolFeesPaymentFragment : Fragment() {
 
         binding.schoolTitle.text = schoolName
 
+        binding.admissionNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus){
+                binding.admissionNumberTextField.setHintTextColor(Color.GRAY)
+            }else{
+                binding.admissionNumberTextField.setHintTextColor(Color.WHITE)
+            }
+        }
+
+        binding.phoneNumberTextField.setOnFocusChangeListener { v, hasFocus ->
+            if(hasFocus){
+                binding.phoneNumberTextField.setHintTextColor(Color.GRAY)
+            }else{
+                binding.phoneNumberTextField.setHintTextColor(Color.WHITE)
+            }
+        }
+
         setupTextWatchers()
         observeValidationResults()
 
@@ -54,9 +71,6 @@ class SchoolFeesPaymentFragment : Fragment() {
     }
 
     private fun setupTextWatchers() {
-        binding.accountNumberTextField.addTextChangedListener(createTextWatcher {
-            inputValidationViewModel.validateAccountnumber(it)
-        })
         binding.phoneNumberTextField.addTextChangedListener(createTextWatcher {
             inputValidationViewModel.validatePhoneNumber(it)
         })
